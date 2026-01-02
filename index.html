@@ -20,7 +20,6 @@
             align-items: center;
         }
 
-        /* PAGES */
         .page {
             display: none;
             width: 100%;
@@ -111,7 +110,6 @@
         }
 
         /* VIDEO PAGE */
-        #videoPage {
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -121,34 +119,36 @@
 
         .video-container {
             background: white;
-            padding: 40px;
+            padding: 40px 40px;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             text-align: center;
-            max-width: 600px;
+            max-width: 700px;
+            width: 100%;
             animation: slideUp 0.6s ease-out;
         }
 
         .video-container h2 {
             color: #667eea;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-size: 28px;
         }
 
-        .video-placeholder {
+        .video-wrapper {
             width: 100%;
-            max-width: 600px;
-            background: #f0f0f0;
-            border-radius: 10px;
-            margin: 0 auto 30px auto;
-            padding: 10px;
+            height: 260px;
+            background: #f0f0f8;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
         }
 
-        .video-placeholder video {
+        .video-wrapper video {
             width: 100%;
-            height: auto;
-            border-radius: 10px;
-            display: block;
+            height: 100%;
+            border-radius: 16px;
         }
 
         .video-text {
@@ -162,8 +162,8 @@
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
 
-        /* SLIDESHOW PAGE */
-        #slideshowPage {
+        /* JOURNEY MENU PAGE */
+        #journeyMenuPage {
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -171,7 +171,59 @@
             padding: 40px 20px;
         }
 
-        .slide {
+        .journey-menu-container {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .journey-menu-container h1 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 36px;
+        }
+
+        .journey-menu-container p {
+            color: #d946a0;
+            margin-bottom: 40px;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .menu-button {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            margin: 12px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* TOPIC SLIDESHOW PAGE */
+        #topicSlideshowPage {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .topic-slide {
             display: none;
             background: white;
             padding: 60px 40px;
@@ -180,13 +232,13 @@
             text-align: center;
             max-width: 700px;
             animation: fadeIn 0.6s ease-out;
-            min-height: 400px;
+            min-height: 450px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .slide.active {
+        .topic-slide.active {
             display: flex;
         }
 
@@ -195,21 +247,34 @@
             to { opacity: 1; }
         }
 
-        .slide h2 {
+        .topic-slide h2 {
             color: #667eea;
             font-size: 32px;
             margin-bottom: 20px;
         }
 
-        .slide p {
-            color: #d946a0;
-            font-size: 20px;
-            font-style: italic;
+        .topic-slide p {
+            color: #666;
+            font-size: 18px;
             line-height: 1.8;
             margin-bottom: 30px;
         }
 
-        .slide-controls {
+        .topic-slide-image {
+            width: 100%;
+            max-width: 500px;
+            height: 250px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .topic-controls {
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -220,9 +285,14 @@
         .btn-small {
             padding: 10px 25px;
             font-size: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
-        .slide-indicator {
+        .btn-back {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .topic-indicator {
             color: #999;
             margin-top: 20px;
             font-size: 14px;
@@ -271,17 +341,26 @@
         @media (max-width: 768px) {
             .password-container,
             .video-container,
-            .slide,
+            .journey-menu-container,
+            .topic-slide,
             .birthday-container {
                 padding: 30px 20px;
             }
 
-            .slide h2 {
+            .video-container h2 {
+                font-size: 28px;
+            }
+
+            .topic-slide h2 {
                 font-size: 24px;
             }
 
             .birthday-container h1 {
                 font-size: 36px;
+            }
+
+            .menu-button {
+                font-size: 14px;
             }
         }
     </style>
@@ -301,241 +380,211 @@
     <!-- VIDEO PAGE -->
     <div id="videoPage" class="page">
         <div class="video-container">
-            <h2>💕 Our Moment</h2>
-
-            <div class="video-placeholder">
-                <video id="ourVideo" controls autoplay muted playsinline>
-                    <source src="ourvideo.mp4" type="video/mp4">
+            <h2>💕 Our Special Moment</h2>
+            <div class="video-wrapper">
+                <video width="100%" height="auto" controls>
+                    <source src="your-video-url-here.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-
-            <p class="video-text">
-                This is our special moment together.
-            </p>
-
-            <button class="btn btn-journey" onclick="goToSlideshow()">Go to the Journey ➜</button>
+            <p class="video-text">Watch our beautiful memory together. Replace "your-video-url-here.mp4" with your actual video file.</p>
+            <button class="btn btn-journey" onclick="goToJourney()">Go to Our Journey ➜</button>
         </div>
     </div>
 
-    <!-- SLIDESHOW PAGE -->
-    <div id="slideshowPage" class="page">
-        <!-- Topics Menu -->
-        <div class="slide active" id="topicsSlide">
-            <h2>Our Journey</h2>
+    <!-- JOURNEY MENU PAGE -->
+    <div id="journeyMenuPage" class="page">
+        <div class="journey-menu-container">
+            <h1>💕 Our Journey</h1>
             <p>Select a moment to relive it.</p>
-
-            <div style="display:flex; flex-direction:column; gap:15px; margin-top:25px;">
-                <button class="btn btn-small" onclick="openTopic('firstDate')">1. Our First Date</button>
-                <button class="btn btn-small" onclick="openTopic('lateNightDrive')">2. Late Night Drive</button>
-                <button class="btn btn-small" onclick="openTopic('yourSupport')">3. Your Support</button>
-                <button class="btn btn-small" onclick="openTopic('sushiNight')">4. Sushi Night</button>
-                <button class="btn btn-small" onclick="openTopic('yourSmile')">5. Your Smile</button>
-            </div>
-
-            <div class="slide-indicator">
-                <span>Choose a topic</span>
-            </div>
+            <button class="menu-button" onclick="startTopic(0)">1. Our First Date</button>
+            <button class="menu-button" onclick="startTopic(1)">2. Late Night Drive</button>
+            <button class="menu-button" onclick="startTopic(2)">3. Your Support</button>
+            <button class="menu-button" onclick="startTopic(3)">4. Sushi Night</button>
+            <button class="menu-button" onclick="startTopic(4)">5. Your Smile</button>
         </div>
+    </div>
 
-        <!-- TOPIC 1: Our First Date -->
-        <!-- Slide: Text -->
-        <div class="slide topic-firstDate">
-            <h2>💕 Our First Date</h2>
-            <p style="font-size:18px; margin:10px 0; color:#667eea;">February 2, 2023</p>
-            <p>That day, my heart knew it had found its forever. Every moment with you felt like a beautiful dream come true.</p>
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="backToTopics()">← Back to topics</button>
+    <!-- TOPIC SLIDESHOW PAGE -->
+    <div id="topicSlideshowPage" class="page">
+        <!-- Our First Date Topic -->
+        <div class="topic-slide active">
+            <h2>❤️ Our First Date</h2>
+            <p>January 21, 2004</p>
+            <p>The day that changed everything. When I first saw you, I knew you were the one I wanted to spend forever with. Your smile was brighter than any star in the sky.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small btn-back" onclick="backToMenu()">← Back</button>
                 <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">1</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">1</span> / 3</div>
         </div>
 
-        <!-- Slide: Video -->
-        <div class="slide topic-firstDate">
-            <h2>💕 Our First Date – Video</h2>
-            <video width="100%" controls style="border-radius:10px; margin:20px 0;">
-                <source src="firstDate.mp4" type="video/mp4">
-            </video>
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
+        <div class="topic-slide">
+            <h2>❤️ Our First Date</h2>
+            <p>The Beginning</p>
+            <div class="topic-slide-image">[Your Video or Memory]</div>
+            <p>A moment frozen in time, where two hearts became one.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
                 <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">2</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">2</span> / 3</div>
         </div>
 
-        <!-- Slide: Photo -->
-        <div class="slide topic-firstDate">
-            <h2>💕 Our First Date – Memory</h2>
-            <img src="firstDate.jpg" alt="Our first date" style="width:100%; max-width:500px; border-radius:10px; margin:20px 0;">
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
-                <button class="btn btn-small" onclick="backToTopics()">Back to topics</button>
+        <div class="topic-slide">
+            <h2>❤️ Our First Date</h2>
+            <p>Forever Starts Here</p>
+            <div class="topic-slide-image">[Your Photo Here]</div>
+            <p>This is where our beautiful love story truly began.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small btn-back" onclick="backToMenu()">Back to Menu</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">3</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">3</span> / 3</div>
         </div>
 
-        <!-- TOPIC 2: Late Night Drive -->
-        <!-- Slide: Text -->
-        <div class="slide topic-lateNightDrive">
+        <!-- Late Night Drive Topic -->
+        <div class="topic-slide">
             <h2>🌙 Late Night Drive</h2>
-            <p style="font-size:18px; margin:10px 0; color:#667eea;">March 15, 2023</p>
-            <p>Driving through the night with you by my side, the world felt so quiet and peaceful. In those moments, I realized you are my home, not a place.</p>
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="backToTopics()">← Back to topics</button>
+            <p>Our Special Moments</p>
+            <p>Those endless nights driving together, talking about dreams and futures. Your hand in mine made every mile feel like home.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small btn-back" onclick="backToMenu()">← Back</button>
                 <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">1</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">1</span> / 3</div>
         </div>
 
-        <!-- Slide: Video -->
-        <div class="slide topic-lateNightDrive">
-            <h2>🌙 Late Night Drive – Video</h2>
-            <video width="100%" controls style="border-radius:10px; margin:20px 0;">
-                <source src="lateNightDrive.mp4" type="video/mp4">
-            </video>
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
+        <div class="topic-slide">
+            <h2>🌙 Late Night Drive</h2>
+            <p>Under the Stars</p>
+            <div class="topic-slide-image">[Your Video or Memory]</div>
+            <p>The world felt smaller when we were together.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
                 <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">2</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">2</span> / 3</div>
         </div>
 
-        <!-- Slide: Photo -->
-        <div class="slide topic-lateNightDrive">
-            <h2>🌙 Late Night Drive – Memory</h2>
-            <img src="lateNightDrive.jpg" alt="Late night drive" style="width:100%; max-width:500px; border-radius:10px; margin:20px 0;">
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
-                <button class="btn btn-small" onclick="backToTopics()">Back to topics</button>
+        <div class="topic-slide">
+            <h2>🌙 Late Night Drive</h2>
+            <p>Memories Made</p>
+            <div class="topic-slide-image">[Your Photo Here]</div>
+            <p>Every drive was an adventure with you by my side.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small btn-back" onclick="backToMenu()">Back to Menu</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">3</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">3</span> / 3</div>
         </div>
 
-        <!-- TOPIC 3: Your Support -->
-        <!-- Slide: Text -->
-        <div class="slide topic-yourSupport">
+        <!-- Your Support Topic -->
+        <div class="topic-slide">
             <h2>💪 Your Support</h2>
-            <p style="font-size:18px; margin:10px 0; color:#667eea;">April 20, 2023</p>
-            <p>When I needed you the most, you were there without hesitation. Your love lifted me up and showed me that I am never alone. Thank you for being my strength.</p>
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="backToTopics()">← Back to topics</button>
+            <p>My Greatest Strength</p>
+            <p>Through every storm, you stood by me. Your belief in me when I doubted myself gave me the courage to face anything.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small btn-back" onclick="backToMenu()">← Back</button>
                 <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">1</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">1</span> / 3</div>
         </div>
 
-        <!-- Slide: Video -->
-        <div class="slide topic-yourSupport">
-            <h2>💪 Your Support – Video</h2>
-            <video width="100%" controls style="border-radius:10px; margin:20px 0;">
-                <source src="yourSupport.mp4" type="video/mp4">
-            </video>
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
+        <div class="topic-slide">
+            <h2>💪 Your Support</h2>
+            <p>You Were There</p>
+            <div class="topic-slide-image">[Your Video or Memory]</div>
+            <p>In my darkest moments, you were my light.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
                 <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">2</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">2</span> / 3</div>
         </div>
 
-        <!-- Slide: Photo -->
-        <div class="slide topic-yourSupport">
-            <h2>💪 Your Support – Memory</h2>
-            <img src="yourSupport.jpg" alt="Your support" style="width:100%; max-width:500px; border-radius:10px; margin:20px 0;">
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
-                <button class="btn btn-small" onclick="backToTopics()">Back to topics</button>
+        <div class="topic-slide">
+            <h2>💪 Your Support</h2>
+            <p>Forever Grateful</p>
+            <div class="topic-slide-image">[Your Photo Here]</div>
+            <p>Thank you for being my rock, my strength, my everything.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small btn-back" onclick="backToMenu()">Back to Menu</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">3</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">3</span> / 3</div>
         </div>
 
-        <!-- TOPIC 4: Sushi Night -->
-        <!-- Slide: Text -->
-        <div class="slide topic-sushiNight">
+        <!-- Sushi Night Topic -->
+        <div class="topic-slide">
             <h2>🍣 Sushi Night</h2>
-            <p style="font-size:18px; margin:10px 0; color:#667eea;">May 10, 2023</p>
-            <p>Over sushi and laughter, I realized that the simplest moments with you are the most precious. Every meal, every laugh, every glance – they all mean the world to me.</p>
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="backToTopics()">← Back to topics</button>
+            <p>Our Favorite Nights</p>
+            <p>Simple moments made extraordinary with you. Those nights laughing over sushi, sharing stories and dreams, are treasured forever.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small btn-back" onclick="backToMenu()">← Back</button>
                 <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">1</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">1</span> / 3</div>
         </div>
 
-        <!-- Slide: Video -->
-        <div class="slide topic-sushiNight">
-            <h2>🍣 Sushi Night – Video</h2>
-            <video width="100%" controls style="border-radius:10px; margin:20px 0;">
-                <source src="sushiNight.mp4" type="video/mp4">
-            </video>
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
+        <div class="topic-slide">
+            <h2>🍣 Sushi Night</h2>
+            <p>Good Food, Better Company</p>
+            <div class="topic-slide-image">[Your Video or Memory]</div>
+            <p>Your laugh is my favorite sound in the world.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
                 <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">2</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">2</span> / 3</div>
         </div>
 
-        <!-- Slide: Photo -->
-        <div class="slide topic-sushiNight">
-            <h2>🍣 Sushi Night – Memory</h2>
-            <img src="sushiNight.jpg" alt="Sushi night" style="width:100%; max-width:500px; border-radius:10px; margin:20px 0;">
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
-                <button class="btn btn-small" onclick="backToTopics()">Back to topics</button>
+        <div class="topic-slide">
+            <h2>🍣 Sushi Night</h2>
+            <p>These Are My Favorite Memories</p>
+            <div class="topic-slide-image">[Your Photo Here]</div>
+            <p>With you, every moment feels like a celebration.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small btn-back" onclick="backToMenu()">Back to Menu</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">3</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">3</span> / 3</div>
         </div>
 
-        <!-- TOPIC 5: Your Smile -->
-        <!-- Slide: Text -->
-        <div class="slide topic-yourSmile">
+        <!-- Your Smile Topic -->
+        <div class="topic-slide">
             <h2>😊 Your Smile</h2>
-            <p style="font-size:18px; margin:10px 0; color:#667eea;">June 5, 2023</p>
-            <p>Your smile is my favorite thing in the world. It brightens my darkest days and reminds me why I fall in love with you all over again, every single day.</p>
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="backToTopics()">← Back to topics</button>
+            <p>My Greatest Joy</p>
+            <p>Your smile lights up my entire world. Every time you smile, my heart melts and I fall in love with you all over again.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small btn-back" onclick="backToMenu()">← Back</button>
                 <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">1</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">1</span> / 3</div>
         </div>
 
-        <!-- Slide: Video -->
-        <div class="slide topic-yourSmile">
-            <h2>😊 Your Smile – Video</h2>
-            <video width="100%" controls style="border-radius:10px; margin:20px 0;">
-                <source src="yourSmile.mp4" type="video/mp4">
-            </video>
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
+        <div class="topic-slide">
+            <h2>😊 Your Smile</h2>
+            <p>Beauty Beyond Words</p>
+            <div class="topic-slide-image">[Your Video or Memory]</div>
+            <p>You are the most beautiful person inside and out.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
                 <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">2</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">2</span> / 3</div>
         </div>
 
-        <!-- Slide: Photo -->
-        <div class="slide topic-yourSmile">
-            <h2>😊 Your Smile – Memory</h2>
-            <img src="yourSmile.jpg" alt="Your smile" style="width:100%; max-width:500px; border-radius:10px; margin:20px 0;">
-
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
-                <button class="btn btn-small" onclick="backToTopics()">Back to topics</button>
+        <div class="topic-slide">
+            <h2>😊 Your Smile</h2>
+            <p>Forever Mine</p>
+            <div class="topic-slide-image">[Your Photo Here]</div>
+            <p>I promise to make you smile for the rest of our lives.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small btn-back" onclick="goToBirthday()">Happy Birthday 🎉</button>
             </div>
-            <div class="slide-indicator"><span class="topicIndex">3</span> / <span class="topicTotal">3</span></div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">3</span> / 3</div>
         </div>
     </div>
 
@@ -551,8 +600,17 @@
     </div>
 
     <script>
-        // PASSWORD
         const correctPassword = "21012004";
+        let currentTopic = 0;
+        let currentTopicSlideIndex = 0;
+
+        const topics = [
+            { name: 'Our First Date', slides: 3, startIndex: 0 },
+            { name: 'Late Night Drive', slides: 3, startIndex: 3 },
+            { name: 'Your Support', slides: 3, startIndex: 6 },
+            { name: 'Sushi Night', slides: 3, startIndex: 9 },
+            { name: 'Your Smile', slides: 3, startIndex: 12 }
+        ];
 
         function checkPassword() {
             const input = document.getElementById('passwordInput').value;
@@ -560,7 +618,7 @@
 
             if (input === correctPassword) {
                 errorMsg.style.display = 'none';
-                goToVideo();
+                showPage('videoPage');
             } else {
                 errorMsg.style.display = 'block';
                 document.getElementById('passwordInput').value = '';
@@ -573,7 +631,6 @@
             }
         });
 
-        // PAGE NAVIGATION
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
@@ -581,12 +638,22 @@
             document.getElementById(pageId).classList.add('active');
         }
 
-        function goToVideo() {
-            showPage('videoPage');
+        function goToJourney() {
+            showPage('journeyMenuPage');
         }
 
-        function goToSlideshow() {
-            showPage('slideshowPage');
+        function startTopic(topicIndex) {
+            currentTopic = topicIndex;
+            currentTopicSlideIndex = 0;
+            showPage('topicSlideshowPage');
+            const topicData = topics[topicIndex];
+            const slideIndex = topicData.startIndex + currentTopicSlideIndex;
+            showTopicSlide(slideIndex);
+            updateTopicIndicators();
+        }
+
+        function backToMenu() {
+            showPage('journeyMenuPage');
         }
 
         function goToBirthday() {
@@ -594,50 +661,35 @@
             createConfetti();
         }
 
-        // SLIDESHOW (base slides)
-        const slides = document.querySelectorAll('.slide');
-
-        // TOPIC SUB-SLIDES
-        let currentTopic = null;
-        let currentTopicIndex = 0;
-
-        function openTopic(topicName) {
-            currentTopic = topicName;
-            currentTopicIndex = 0;
-
-            slides.forEach(slide => slide.classList.remove('active'));
-
-            const topicSlides = document.querySelectorAll('.topic-' + topicName);
-            if (topicSlides.length > 0) {
-                topicSlides[0].classList.add('active');
-            }
-        }
-
-        function backToTopics() {
-            slides.forEach(slide => slide.classList.remove('active'));
-            document.getElementById('topicsSlide').classList.add('active');
-            currentTopic = null;
-        }
-
-        function showTopicSlide() {
-            const topicSlides = document.querySelectorAll('.topic-' + currentTopic);
-            topicSlides.forEach(slide => slide.classList.remove('active'));
-            topicSlides[currentTopicIndex].classList.add('active');
+        function showTopicSlide(index) {
+            const allSlides = document.querySelectorAll('.topic-slide');
+            allSlides.forEach(slide => slide.classList.remove('active'));
+            allSlides[index].classList.add('active');
         }
 
         function nextTopicSlide() {
-            const topicSlides = document.querySelectorAll('.topic-' + currentTopic);
-            currentTopicIndex = Math.min(currentTopicIndex + 1, topicSlides.length - 1);
-            showTopicSlide();
+            const topicData = topics[currentTopic];
+            currentTopicSlideIndex = (currentTopicSlideIndex + 1) % topicData.slides;
+            const slideIndex = topicData.startIndex + currentTopicSlideIndex;
+            showTopicSlide(slideIndex);
+            updateTopicIndicators();
         }
 
-        function previousTopicSlide() {
-            const topicSlides = document.querySelectorAll('.topic-' + currentTopic);
-            currentTopicIndex = Math.max(currentTopicIndex - 1, 0);
-            showTopicSlide();
+        function prevTopicSlide() {
+            const topicData = topics[currentTopic];
+            currentTopicSlideIndex = (currentTopicSlideIndex - 1 + topicData.slides) % topicData.slides;
+            const slideIndex = topicData.startIndex + currentTopicSlideIndex;
+            showTopicSlide(slideIndex);
+            updateTopicIndicators();
         }
 
-        // CONFETTI ANIMATION
+        function updateTopicIndicators() {
+            const indicators = document.querySelectorAll('#topicCurrentSlide');
+            indicators.forEach(indicator => {
+                indicator.textContent = currentTopicSlideIndex + 1;
+            });
+        }
+
         function createConfetti() {
             for (let i = 0; i < 50; i++) {
                 const confetti = document.createElement('div');
